@@ -75,6 +75,9 @@ const posts = [
 const postListElement = document.querySelector(`.posts-list`);
 
 posts.forEach(post => {
+    const createDate = new Date(post.created);
+    const italianDate = `${createDate.getDate()}/${createDate.getMonth() + 1}/${createDate.getFullYear()}`;
+
     const createPost = `
     <div class="post">
         <div class="post__header">
@@ -84,7 +87,7 @@ posts.forEach(post => {
                 </div>
                 <div class="post-meta__data">
                     <div class="post-meta__author">${post.author.name}</div>
-                    <div class="post-meta__time">${post.created}</div>
+                    <div class="post-meta__time">${italianDate}</div>
                 </div>                    
             </div>
         </div>
