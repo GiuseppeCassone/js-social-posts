@@ -123,13 +123,19 @@ buttonElement.forEach((button, index) => {
         event.preventDefault();
 
         const postId = button.dataset.postid;
-        likeCounter[index].innerHTML ++;
-        button.classList.toggle("like-button--liked");
-
+        
         let currentLikes = document.querySelector(`#like-counter-${postId}`);
-        likePostId.push(currentLikes);
-        console.log(likePostId)
-
+        const alreadyLiked = button.classList.contains("like-button--liked");   
+        
+        if (alreadyLiked) {
+            likeCounter[index].innerHTML --;
+            button.classList.remove("like-button--liked");
+        } else {
+            likeCounter[index].innerHTML ++;
+            button.classList.add("like-button--liked");
+            likePostId.push(currentLikes);
+            console.log(likePostId)
+        }
 
     });
 });
