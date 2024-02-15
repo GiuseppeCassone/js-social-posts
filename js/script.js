@@ -108,4 +108,19 @@ posts.forEach(post => {
     </div> 
     `;
     postListElement.innerHTML += createPost;
-})
+});
+
+const likePostId = [];
+
+const buttonElement = document.querySelectorAll(".like-button");
+const likeCounter = document.querySelectorAll(`.js-likes-counter`);
+
+buttonElement.forEach((button, index) => {
+    button.addEventListener("click", function (event) {
+        event.preventDefault();
+        likeCounter[index].innerHTML ++;
+        button.classList.toggle("liked");
+        likePostId.push()
+        console.log(likePostId)
+    });
+});
