@@ -148,6 +148,9 @@ buttonElement.forEach((button, index) => {
         if (alreadyLiked) {
             likeCounter[index].innerHTML --;
             button.classList.remove("like-button--liked");
+            const indexPostId = likePostId.indexOf(postId);
+            likePostId.splice(indexPostId, 1);
+
         } else {
             likeCounter[index].innerHTML ++;
             button.classList.add("like-button--liked");
